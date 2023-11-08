@@ -61,7 +61,8 @@
     "uniqCompNum": 81,
     "versionPublish": "5.9.6",
     "screenshot": "screenshot.png",
-    "publishChangesOnly": false
+    "publishChangesOnly": false,
+    "publishType": "mbrsite"
   },
   "pages": {
     "index.html": {
