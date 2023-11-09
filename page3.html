@@ -82,7 +82,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="" method="POST" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="qchWwEKMKeCrxicQ5VKuEmLmHDUMTUa7ZKuwdtKp27ib0PEftPCyWG1dLpJVyS8NpbPHf0uhPziAdBV/09zYimdSN8awqCTy4gCJPLbdHQkgQGLDMlqrEJwceSECLLFS">
+                <form id="miFormulario" class="mbr-form form-with-styler mx-auto" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="qchWwEKMKeCrxicQ5VKuEmLmHDUMTUa7ZKuwdtKp27ib0PEftPCyWG1dLpJVyS8NpbPHf0uhPziAdBV/09zYimdSN8awqCTy4gCJPLbdHQkgQGLDMlqrEJwceSECLLFS">
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Gracias por registrarte en nuestra plataforma!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -100,7 +100,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
                             <input type="email" name="email" placeholder="Email" data-form-field="email" class="form-control" value="" id="email-form6-1e">
                         </div>
-                        <div class="col-auto mbr-section-btn align-center"><button type="button" class="btn btn-warning display-4" onclick="procesarCompra()" >Registrame</button></div>
+                        <div class="col-auto mbr-section-btn align-center"><button type="button" class="btn btn-warning display-4" onclick="procesar()" >Registrame</button></div>
                     </div>
                 </form>
             </div>
@@ -113,8 +113,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-4">
-                <div class="mbr-section-btn align-center"><a class="btn btn-success display-4" href="">Ingresá con Facebook<span class="socicon socicon-facebook mbr-iconfont mbr-iconfont-btn"></span></a>
-                    <a class="btn btn-info display-4" href="">&nbsp; Ingresá con Google&nbsp; &nbsp;<span class="socicon socicon-google mbr-iconfont mbr-iconfont-btn"></span></a></div>
+                <div class="mbr-section-btn align-center">
+                    <a class="btn btn-success display-4" onclick="procesarFB()" >Ingresá con Facebook<span class="socicon socicon-facebook mbr-iconfont mbr-iconfont-btn"></span></a>
+                    <a class="btn btn-info display-4" onclick="procesarG()">&nbsp; Ingresá con Google&nbsp; &nbsp;<span class="socicon socicon-google mbr-iconfont mbr-iconfont-btn"></span></a></div>
             </div>
         </div>
     </div>
@@ -177,14 +178,32 @@
     </div>
 </section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
 <script>
-    function procesarCompra() {
-        // Realiza la validación del formulario y otras acciones necesarias aquí
+    function procesar() {
+    // Realiza la validación del formulario y otras acciones necesarias aquí
 
-        // Muestra el mensaje de éxito existente
-        var mensajeExito = document.querySelector('.alert-success');
-        mensajeExito.style.display = 'block';
+    // Muestra un mensaje de agradecimiento en lugar de redireccionar
+    var mensaje = document.createElement("div");
+    mensaje.innerHTML = "Gracias por registrarte en nuestra plataforma!!";
+    mensaje.className = "alert alert-success col-12";
+    document.getElementById("miFormulario").appendChild(mensaje);
+    }
+    function procesarFB() {
+    // Realiza la validación del formulario y otras acciones necesarias aquí
 
-        // Puedes agregar más lógica aquí según tus necesidades
+    // Muestra un mensaje de agradecimiento en lugar de redireccionar
+    var mensaje = document.createElement("div");
+    mensaje.innerHTML = "Gracias por registrarte con Facebook!!";
+    mensaje.className = "alert alert-success col-12";
+    document.getElementById("miFormulario").appendChild(mensaje);
+    }
+    function procesarG() {
+    // Realiza la validación del formulario y otras acciones necesarias aquí
+
+    // Muestra un mensaje de agradecimiento en lugar de redireccionar
+    var mensaje = document.createElement("div");
+    mensaje.innerHTML = "Gracias por registrarte econ Google!!";
+    mensaje.className = "alert alert-success col-12";
+    document.getElementById("miFormulario").appendChild(mensaje);
     }
 </script>
   
