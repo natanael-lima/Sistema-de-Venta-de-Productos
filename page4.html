@@ -104,13 +104,13 @@
                             <input type="text" name="name" placeholder="Nombre del Titular de la Tarjeta " data-form-field="email" class="form-control" value="" id="email-form7-1d">
                         </div>
                         <div data-for="date" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
-                            <input type="date" name="date" placeholder="Mes" data-form-field="date" class="form-control" value="" id="phone-form7-1d">
+                            <input type="date" name="mes" placeholder="Mes" data-form-field="date" class="form-control" value="" id="phone-form7-1d">
                         </div>
                         <div data-for="date" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
                             <input type="date" name="year" min="2022" max="2030" placeholder="Año" data-form-field="date" class="form-control" value="" id="phone-form7-1d">
                         </div>
                         <div data-for="phone" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
-                            <input type="number" name="date" placeholder="CVV" data-form-field="phone" class="form-control" value="" id="phone-form7-1d">
+                            <input type="number" name="cvv" placeholder="CVV" data-form-field="phone" class="form-control" value="" id="phone-form7-1d">
                         </div>
                         <div class="col-auto mbr-section-btn align-center"><button type="button" class="btn btn-warning display-4" onclick="procesar()">Comprar</button></div>
                     </div>
@@ -187,7 +187,7 @@
                 <ul class="list mbr-fonts-style display-4">
 
                     <li class="mbr-text item-wrap">Email: support@gmail.com
-</li><li class="mbr-text item-wrap">Phone: +54 9 388 1234567</li>
+                </li><li class="mbr-text item-wrap">Phone: +54 9 388 1234567</li>
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
@@ -200,7 +200,7 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <h5 class="mbr-section-subtitle mbr-fonts-style mb-2 display-7"><strong>Tienda Física</strong></h5>
                 <p class="mbr-text mbr-fonts-style mb-4 display-4">1234 Street Name
-<br>City, AA 99999</p>
+            <br>City, AA 99999</p>
                 <h5 class="mbr-section-subtitle mbr-fonts-style mb-3 display-7"><strong>Redes Sociales</strong></h5>
                 <div class="social-row display-7">
                     <div class="soc-item">
@@ -231,14 +231,32 @@
 </section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
 <script>
     function procesar() {
-    // Realiza la validación del formulario y otras acciones necesarias aquí
+        // Realiza la validación del formulario
+        var metodo = document.forms["miFormulario"]["metodo"].value;
+        var card = document.forms["miFormulario"]["card"].value;
+        var name = document.forms["miFormulario"]["name"].value;
+        var date = document.forms["miFormulario"]["mes"].value;
+        var year = document.forms["miFormulario"]["year"].value;
+        var cvv = document.forms["miFormulario"]["cvv"].value;
 
-    // Muestra un mensaje de agradecimiento en lugar de redireccionar
-    var mensaje = document.createElement("div");
-    mensaje.innerHTML = "Su compra ha sido procesada con éxito!";
-    mensaje.className = "alert alert-success col-12";
-    document.getElementById("miFormulario").appendChild(mensaje);
-}
+        if (metodo === "" || card === "" || name === "" || date === "" || year === "" || cvv === "") {
+            // Muestra un mensaje de error si algún campo está vacío
+            var mensajeError = document.createElement("div");
+            mensajeError.innerHTML = "Por favor, completa todos los campos antes de hacer clic en Comprar.";
+            mensajeError.className = "alert alert-danger col-12";
+            document.getElementById("miFormulario").appendChild(mensajeError);
+            return;
+        }
+
+        // Otras acciones necesarias aquí
+
+        // Muestra un mensaje de agradecimiento en lugar de redireccionar
+        var mensajeExito = document.createElement("div");
+        mensajeExito.innerHTML = "Su compra ha sido procesada con éxito!";
+        mensajeExito.className = "alert alert-success col-12";
+        document.getElementById("miFormulario").appendChild(mensajeExito);
+    }
 </script>
+
 </body>
 </html>
